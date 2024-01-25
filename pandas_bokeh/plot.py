@@ -417,6 +417,12 @@ def plot(  # noqa C901
             else "x"
         )
 
+    # fix compatibility issue with recent matplotlib
+    figure_options['width'] = figure_options['plot_width']
+    figure_options['height'] = figure_options['plot_height']
+    del figure_options['plot_width']
+    del figure_options['plot_height']
+
     # Create Figure for plotting:
     p = figure(**figure_options)
     if "x_axis_type" not in figure_options:
